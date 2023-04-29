@@ -37,8 +37,10 @@ const closeInstance = (event) => {
 
 document.addEventListener("keydown", closeInstance);
 
-instance.element().addEventListener("click", () => {
-  document.removeEventListener("keydown", onEscapePress);
-});
+if (instance) {
+  instance.element().addEventListener("click", () => {
+    document.removeEventListener("keydown", closeInstance);
+  });
+}
 
 console.log(galleryItems);
